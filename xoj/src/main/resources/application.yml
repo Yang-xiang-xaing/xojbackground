@@ -1,0 +1,40 @@
+# 设置端口号
+server:
+  port: 829
+# 设置应用名称
+spring:
+  application:
+    name: XOJBackgroundManagementsSystem
+
+  # 数据源配置
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/xoj?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: 082916
+
+    # redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 082916
+    database: 0
+
+# mybatis-plus框架配置
+mybatis-plus:
+  configuration:
+    # #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    # address_book --转换为--> AddressBook
+    map-underscore-to-camel-case: true
+    # 开启MP框架日志功能
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 主键生成策略为雪花算法
+      id-type: ASSIGN_ID
+    # 这里根据自己项目的包修改，扫描到自己的*xml文件  Property 'mapperLocations' was not specified.
+#  mapper-locations: classpath:xx/xx/xx/**/mapper/*.xml
+
+
+
