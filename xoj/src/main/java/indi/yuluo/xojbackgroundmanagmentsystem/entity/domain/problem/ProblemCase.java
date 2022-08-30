@@ -31,14 +31,8 @@ public class ProblemCase {
     @ApiModelProperty(value = "题目id")
     private Long pid;
 
-    @ApiModelProperty(value = "测试样例的输入")
-    private String input;
-
-    @ApiModelProperty(value = "测试样例的输出")
-    private String output;
-
-    @ApiModelProperty(value = "该测试样例的IO得分")
-    private Integer score;
+    @ApiModelProperty(value = "对应的测评文件路径")
+    private String folderPath;
 
     @ApiModelProperty(value = "0可用，1不可用")
     private Integer status;

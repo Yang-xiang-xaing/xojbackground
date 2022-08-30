@@ -52,7 +52,7 @@ public class JwtUtil {
      * @return
      */
     public static String createJWT(String subject, Long ttlMillis) {
-        log.info("盐：{}", JWT_KEY);
+        // log.info("盐：{}", JWT_KEY);
         JwtBuilder builder = getJwtBuilder(subject, ttlMillis, getUUID());// 设置过期时间
         return builder.compact();
     }

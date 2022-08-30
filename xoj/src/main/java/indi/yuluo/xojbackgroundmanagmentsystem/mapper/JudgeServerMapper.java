@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import indi.yuluo.xojbackgroundmanagmentsystem.entity.domain.judge.Judge;
 import indi.yuluo.xojbackgroundmanagmentsystem.entity.domain.judge.JudgeServer;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * @Author: yuluo

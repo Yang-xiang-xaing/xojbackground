@@ -1,5 +1,6 @@
 package indi.yuluo.xojbackgroundmanagmentsystem.controller;
 
+import indi.yuluo.xojbackgroundmanagmentsystem.common.BaseContext;
 import indi.yuluo.xojbackgroundmanagmentsystem.entity.domain.user.UserInfo;
 import indi.yuluo.xojbackgroundmanagmentsystem.entity.model.Result;
 import indi.yuluo.xojbackgroundmanagmentsystem.service.UserService;
@@ -52,7 +53,7 @@ public class UserController {
             // 可以登录，生成jwt token凭证 并返回给前端
             // 错误交由globalExceptionHandler处理异常
             jwtToken = JwtUtil.createJWT(String.valueOf(curUser.getUuid()), 1000L * 60 * 60 * 24);
-            log.info(jwtToken);
+            // log.info(jwtToken);
         }
 
         return Result.success(jwtToken);

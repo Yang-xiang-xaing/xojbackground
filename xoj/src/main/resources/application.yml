@@ -36,5 +36,9 @@ mybatis-plus:
     # 这里根据自己项目的包修改，扫描到自己的*xml文件  Property 'mapperLocations' was not specified.
 #  mapper-locations: classpath:xx/xx/xx/**/mapper/*.xml
 
+# 题目测评文件的存放路径
+file-server:
+  path: E:\Java\Java_project\XOJ\evaluation-document
+
 
 

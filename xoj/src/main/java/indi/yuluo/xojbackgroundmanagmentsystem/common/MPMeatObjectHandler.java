@@ -1,7 +1,6 @@
 package indi.yuluo.xojbackgroundmanagmentsystem.common;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.sun.prism.impl.BaseContext;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
@@ -24,10 +23,14 @@ public class MPMeatObjectHandler implements MetaObjectHandler {
         // log.info(metaObject.toString());
         // metaObject.setValue("gmtCreate", LocalDateTime.now());
         // metaObject.setValue("gmtModified", LocalDateTime.now());
+
+        // metaObject.setValue("author", BaseContext.getCurrent());
+
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
+        // metaObject.setValue("author", BaseContext.getCurrent());
         // metaObject.setValue("gmtModified", LocalDateTime.now());
     }
 

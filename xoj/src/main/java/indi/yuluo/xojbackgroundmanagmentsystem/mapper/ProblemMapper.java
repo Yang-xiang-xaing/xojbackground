@@ -3,6 +3,7 @@ package indi.yuluo.xojbackgroundmanagmentsystem.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import indi.yuluo.xojbackgroundmanagmentsystem.entity.domain.problem.Problem;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * @Author: yuluo
@@ -11,5 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 
 @Mapper
+@Repository
 public interface ProblemMapper extends BaseMapper<Problem> {
 }
