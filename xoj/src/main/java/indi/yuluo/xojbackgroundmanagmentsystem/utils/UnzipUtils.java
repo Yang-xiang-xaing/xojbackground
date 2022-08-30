@@ -20,28 +20,20 @@ import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import static indi.yuluo.xojbackgroundmanagmentsystem.utils.JSONUtils.getBean;
-import static indi.yuluo.xojbackgroundmanagmentsystem.utils.JSONUtils.readJsonFile;
-
 @Slf4j
 public class UnzipUtils {
-
-    @Resource
-    private static ProblemCaseService service;
 
     /**
      * 传文件绝对路径
      */
-    public static Problem zipUncompress(String inputFile) {
-        // log.info("UnzipUtils开始解压: {}", inputFile);
+    public static void zipUncompress(String inputFile) {
+        log.info("UnzipUtils开始解压: {}", inputFile);
         File oriFile = new File(inputFile);
 
         // 判断源文件是否存在
         String destDirPath = inputFile.replace(".zip", "");
         FileOutputStream fos = null;
         InputStream is = null;
-        Problem bean = null;
-        String path = null;
 
         // 创建压缩文件对象
         try (ZipFile zipFile = new ZipFile(oriFile)) {
@@ -70,13 +62,6 @@ public class UnzipUtils {
                     byte[] buf = new byte[1024];
                     while ((len = is.read(buf)) != -1) {
                         fos.write(buf, 0, len);
-                    }
-
-                    // 写入文件完成 将json数据转换为Bean对象
-                    path = targetFile.getPath();
-                    if (Objects.equals(path.split("\\.")[1], "json")) {
-                        String jsonFile = readJsonFile(path);
-                        bean = getBean(jsonFile);
                     }
 
                 }
@@ -109,26 +94,6 @@ public class UnzipUtils {
             }
         }
         log.info("UnzipUtils解压完成");
-
-        assert bean != null;
-        rename(inputFile, path, bean.getProblemId());
-
-        return bean;
-    }
-
-    /**
-     * 给解压之后的文件夹中重命名为当前bean的problem_id值
-     *
-     * @param inputFile 本来的文件名
-     * @param path      json文件路径
-     */
-    private static String rename(String inputFile, String path, String name) {
-
-        String curPath = inputFile.replace(inputFile.substring(inputFile.lastIndexOf(File.separator) + 1), name);
-        File parentFile = new File(path).getParentFile();
-        parentFile.renameTo(new File(curPath));
-
-        return curPath;
     }
 }
 
